@@ -1,7 +1,10 @@
 from fastapi import FastAPI
 from database import SessionLocal
+from routers import products
 
 app = FastAPI()
+# Routers
+app.include_router(products.router)
 db = SessionLocal()
 
 
