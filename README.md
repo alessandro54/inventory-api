@@ -1,10 +1,10 @@
-# Inventory Manager
+# Inventory Manager 📜
 
 ## Dependencies
 
-* Python 3.10.4
-* FastAPI 0.75
-* Postgres 12.9
+* 🐍Python ~> 3.10.4
+* ⚡️FastAPI ~> 0.75
+* 🐘Postgres ~> 12.9
 
 ## How to run it
 
@@ -12,6 +12,12 @@ First create a virtual environment
 
 ```shell
 python -m venv venv
+```
+
+Activate virtual environment
+
+```shell
+source venv/bin/activate
 ```
 
 Install deps
