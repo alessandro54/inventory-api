@@ -1,7 +1,10 @@
-from fastapi import FastAPI
+from fastapi import Depends, FastAPI
+from fastapi.security import OAuth2PasswordBearer
 from routers import products
 
 app = FastAPI()
+
+
 # Routers
 app.include_router(products.router)
 

@@ -1,12 +1,12 @@
-from fastapi import status, HTTPException
-from . import router, db
+from fastapi import status, HTTPException, Depends
+from . import router, db, oauth2_scheme
 from models.product import Product as ProductModel
 from schemas.product import Product
 from typing import List
 
 
 @router.get("/products", response_model=List[ProductModel], status_code=status.HTTP_200_OK, tags=["products"])
-async def get_all():
+async def get_all(token: str = Depends(oauth2_scheme)):
     items = db.query(Product).all()
     return items
 
@@ -27,7 +27,7 @@ async def get(product_id: str):
              response_model=ProductModel,
              status_code=status.HTTP_201_CREATED,
              tags=["products"])
-async def create(product: Product):
+async def create(product: ProductModel):
     return product
 
 
