@@ -8,7 +8,7 @@ ACCESS_TOKEN_EXPIRE_MINUTES = 30
 router = APIRouter()
 
 
-@router.post("/token", status_code=status.HTTP_200_OK, tags=["auth.py"])
+@router.post("/token", status_code=status.HTTP_200_OK, tags=["auth"])
 async def login(username: str = Form(...), password: str = Form(...)):
     user = authenticate_user(username, password)
     if not user:
