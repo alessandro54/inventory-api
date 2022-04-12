@@ -1,7 +1,4 @@
-from db.session import Base, engine
-from schemas.product import Product
-from schemas.user import User
-
+from app.db.session import Base, engine
 
 print("Creating db ....")
 

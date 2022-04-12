@@ -11,13 +11,13 @@
 First create a virtual environment
 
 ```shell
-python -m venv venv
+python -m venv .venv
 ```
 
 Activate virtual environment
 
 ```shell
-source venv/bin/activate
+source .venv/bin/activate
 ```
 
 Install deps
@@ -35,5 +35,5 @@ python create_database.py
 Running the server
 
 ```shell
-uvicorn main:app --reload
+uvicorn app.main:app --reload
 ```
