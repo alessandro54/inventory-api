@@ -15,7 +15,7 @@ async def get_all(token: str = Depends(oauth2_scheme)):
             response_model=ProductModel,
             status_code=status.HTTP_200_OK,
             tags=["products"])
-async def get(product_id: str):
+async def get(product_id: str, token: str = Depends(oauth2_scheme)):
     product = db.query(Product).filter(Product.id == product_id).first()
     if product:
         return product
@@ -27,7 +27,7 @@ async def get(product_id: str):
              response_model=ProductModel,
              status_code=status.HTTP_201_CREATED,
              tags=["products"])
-async def create(product: ProductModel):
+async def create(product: ProductModel, token: str = Depends(oauth2_scheme)):
     return product
 
 
@@ -35,7 +35,7 @@ async def create(product: ProductModel):
             response_model=ProductModel,
             status_code=status.HTTP_200_OK,
             tags=["products"])
-async def update(product_id: int):
+async def update(product_id: int, token: str = Depends(oauth2_scheme)):
     return product_id
 
 
@@ -43,5 +43,5 @@ async def update(product_id: int):
                response_model=ProductModel,
                status_code=status.HTTP_200_OK,
                tags=["products"])
-async def delete(product_id: int):
+async def delete(product_id: int, token: str = Depends(oauth2_scheme)):
     return product_id
