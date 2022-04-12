@@ -1,8 +1,11 @@
-from fastapi import APIRouter
-from fastapi.security import OAuth2PasswordBearer
-from app.db.session import SessionLocal
+from fastapi import APIRouter, Depends
 
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
-api_router = APIRouter(prefix="/v1/api")
-root_router = APIRouter()
-db = SessionLocal()
+from . import products, auth, users
+from app.util.auth import oauth2_scheme
+
+
+router = APIRouter()
+router.include_router(auth.router)
+router.include_router(users.router)
+router.include_router(products.router, dependencies=[Depends(oauth2_scheme)])
+

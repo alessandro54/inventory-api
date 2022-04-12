@@ -3,9 +3,10 @@ from pydantic import BaseModel
 
 class User(BaseModel):
     username: str
-    email: str
     password: str
-    name: str
+    email: str
+    first_name: str
+    last_name: str
     bio: str
     disabled: bool
 
