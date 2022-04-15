@@ -4,8 +4,8 @@ from pydantic import BaseModel
 
 from app.services.auth_service import SECRET_KEY, ALGORITHM
 from app.db import db
-from app.models.user import User as UserModel
-from app.db.schemas.user import User
+from app.schemas.user import User as UserModel
+from app.models.user import User
 from app.util.auth import oauth2_scheme
 
 

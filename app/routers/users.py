@@ -1,9 +1,9 @@
 from datetime import timedelta
 
-from fastapi import Depends, APIRouter, HTTPException, Form
+from fastapi import Depends, APIRouter, HTTPException
 
-from app.db.schemas.user import User
-from app.models.user import User as UserModel, UserForm
+from app.models.user import User
+from app.schemas.user import User as UserModel, UserForm
 from app.services.users_service import get_current_active_user
 from app.services.auth_service import get_password_hash, create_access_token
 from app.db import db

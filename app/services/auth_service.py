@@ -4,7 +4,7 @@ from jose import jwt
 from pydantic import BaseModel
 
 from app.db import db
-from app.db.schemas.user import User
+from app.models.user import User
 from app.util.auth import SECRET_KEY, ALGORITHM, pwd_context
 
 

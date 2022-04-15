@@ -1,10 +1,13 @@
-from pydantic import BaseModel
+from app.db.session import Base
+from sqlalchemy import String, Integer, Column, Text
 
 
-class Product(BaseModel):
-    name: str
-    description: str
-    price: str
+class Product(Base):
+    __tablename__ = 'products'
+    id = Column(Integer, primary_key=True)
+    name = Column(String(100), nullable=False, unique=True)
+    description = Column(Text)
+    price = Column(Integer, nullable=False)
 
-    class Config:
-        orm_mode = True
+    def __repr__(self):
+        return f"<Product name={self.name} price={self.price}>"

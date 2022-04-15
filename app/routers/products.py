@@ -1,8 +1,8 @@
 from fastapi import status, APIRouter, HTTPException
 
 from app.db import db
-from app.models.product import Product as ProductModel
-from app.db.schemas.product import Product
+from app.schemas.product import Product as ProductModel
+from app.models.product import Product
 from typing import List
 
 router = APIRouter(prefix="/v1/api")
